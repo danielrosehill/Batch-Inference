@@ -1,4 +1,4 @@
-# LLM Ops
+# Batch Inference
 
 Agent skills and scripts for bulk LLM work: one call per item over hundreds or thousands of items.
 
@@ -18,6 +18,7 @@ cheapest model is often the wrong one. These tools check all of that on the day.
 | `cheapest-batch` | The lowest-cost route, usually DeepSeek V4.1 Flash |
 | `pick-batch-model` | Exact model id by use case, from measured data |
 | `check-api-prices` | Today's prices, sync vs batch, what `~*-latest` aliases really serve |
+| `setup-batch-eval` | Sets up a proper eval for a job with the companion [ai-eval](https://github.com/danielrosehill/AI-Eval) plugin, installing it if needed |
 | `synthetic-data-generation` | Varied synthetic data: seed, rotate writers, dedupe |
 | `batch-research-check` / `batch-research-record` | Read and write a dated notebook of prices, screens and runs |
 

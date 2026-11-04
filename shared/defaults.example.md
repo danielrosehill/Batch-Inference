@@ -1,4 +1,4 @@
-# llm-ops defaults (example)
+# batch-inference defaults (example)
 
 Copy to `<data dir>/defaults.md` (`scripts/paths.sh dir`). Anything here overrides the plugin's skills.
 

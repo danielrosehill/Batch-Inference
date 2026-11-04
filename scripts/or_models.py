@@ -21,7 +21,7 @@ host; the host a job really lands on can cost more (see `hosts`).
 import argparse, collections, json, os, sys, time, urllib.error, urllib.request
 
 API = "https://openrouter.ai/api/v1"
-UA = {"User-Agent": "llm-ops-plugin"}
+UA = {"User-Agent": "batch-inference-plugin"}
 
 
 def get(path, key=None):

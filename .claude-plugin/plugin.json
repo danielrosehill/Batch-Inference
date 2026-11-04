@@ -1,12 +1,25 @@
 {
-  "name": "llm-ops",
-  "version": "1.1.0",
-  "description": "Bulk LLM jobs: read OpenRouter's batch and instruct model lists, compare batch vs sync cost, pick and screen models, run Anthropic and OpenRouter batches or parallel sync calls with real cost tracking.",
+  "name": "batch-inference",
+  "version": "1.2.0",
+  "description": "Batch inference for bulk LLM jobs: read OpenRouter's batch and instruct model lists, compare batch vs sync cost, pick and evaluate models, and run Anthropic and OpenRouter batches or parallel sync calls with real cost tracking.",
   "author": {
     "name": "Daniel Rosehill",
     "url": "https://github.com/danielrosehill"
   },
-  "repository": "https://github.com/danielrosehill/LLM-Ops-Plugin",
+  "repository": "https://github.com/danielrosehill/Batch-Inference",
   "license": "MIT",
-  "keywords": ["llm", "batch", "bulk", "inference", "anthropic", "haiku", "openrouter", "deepseek", "gemini", "synthetic-data", "model-screening", "prices"]
+  "keywords": [
+    "llm",
+    "batch",
+    "bulk",
+    "inference",
+    "anthropic",
+    "haiku",
+    "openrouter",
+    "deepseek",
+    "gemini",
+    "synthetic-data",
+    "model-screening",
+    "prices"
+  ]
 }

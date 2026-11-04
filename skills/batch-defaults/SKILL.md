@@ -55,6 +55,8 @@ unless the user names another model.
 
 ## Choosing the model for a new kind of job: screen wide, small
 
+This is the quick version. For a large, recurring or quality-critical job, use `setup-batch-eval`.
+
 Do not pick one model and run the full set on it. Spend the pilot money on breadth instead:
 
 1. **Shortlist 8-15 candidates** with `or_models.py candidates`, then `probe` them, across vendors and price bands, including the table default and the

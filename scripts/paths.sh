@@ -7,15 +7,15 @@
 #   scripts/paths.sh notebook  -> research notebook dir: the `notebook:` line of defaults.md, else <data dir>/notebook
 #
 # Data dir, first match wins:
-#   1. $LLM_OPS_HOME
-#   2. $CLAUDE_USER_DATA/llm-ops
-#   3. ~/.claude-user-data/llm-ops                          if ~/.claude-user-data exists
-#   4. ${XDG_DATA_HOME:-~/.local/share}/claude-plugins/llm-ops  if that root exists
-#   5. ~/.claude-user-data/llm-ops
+#   1. $BATCH_INFERENCE_HOME
+#   2. $CLAUDE_USER_DATA/batch-inference
+#   3. ~/.claude-user-data/batch-inference                          if ~/.claude-user-data exists
+#   4. ${XDG_DATA_HOME:-~/.local/share}/claude-plugins/batch-inference  if that root exists
+#   5. ~/.claude-user-data/batch-inference
 set -euo pipefail
-NAME=llm-ops
+NAME=batch-inference
 XDG_ROOT="${XDG_DATA_HOME:-$HOME/.local/share}/claude-plugins"
-if [[ -n "${LLM_OPS_HOME:-}" ]]; then DIR="$LLM_OPS_HOME"; RULE="LLM_OPS_HOME"
+if [[ -n "${BATCH_INFERENCE_HOME:-}" ]]; then DIR="$BATCH_INFERENCE_HOME"; RULE="LLM_OPS_HOME"
 elif [[ -n "${CLAUDE_USER_DATA:-}" ]]; then DIR="$CLAUDE_USER_DATA/$NAME"; RULE="CLAUDE_USER_DATA"
 elif [[ -d "$HOME/.claude-user-data" ]]; then DIR="$HOME/.claude-user-data/$NAME"; RULE="existing ~/.claude-user-data"
 elif [[ -d "$XDG_ROOT" ]]; then DIR="$XDG_ROOT/$NAME"; RULE="existing $XDG_ROOT"

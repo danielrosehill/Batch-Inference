@@ -43,7 +43,7 @@ def one(r, a, key, mode):
         if a.provider:
             b["provider"] = {"only": [a.provider], "allow_fallbacks": False}
         req = urllib.request.Request(URL, data=json.dumps(b).encode(), headers={
-            "Authorization": f"Bearer {key}", "Content-Type": "application/json", "User-Agent": "llm-ops-plugin"})
+            "Authorization": f"Bearer {key}", "Content-Type": "application/json", "User-Agent": "batch-inference-plugin"})
         try:
             d = json.load(urllib.request.urlopen(req, timeout=a.timeout))
         except urllib.error.HTTPError as e:
