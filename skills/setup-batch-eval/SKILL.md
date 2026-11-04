@@ -54,6 +54,9 @@ Follow `define-objective` → `define-workload-requirements` → `probe-openrout
 - **Match production.** Same system prompt, schema, reasoning setting and max tokens. Run the eval as sync calls,
   but pin the host if the job will be pinned, since hosts differ in price and quantisation.
 
+If the user has local backends (`backends.py list`), include the local model as a candidate: `run-eval` covers
+OpenRouter models, so generate its outputs with `local_batch.py` on the same items and score them with the rest.
+
 If the job must run as a batch, make it a hard requirement that the model has a `:batch` variant
 (`or_models.py batch`). Otherwise compare both routes for the top two or three.
 

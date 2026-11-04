@@ -1,7 +1,7 @@
 {
   "name": "batch-inference",
-  "version": "1.2.0",
-  "description": "Batch inference for bulk LLM jobs: read OpenRouter's batch and instruct model lists, compare batch vs sync cost, pick and evaluate models, and run Anthropic and OpenRouter batches or parallel sync calls with real cost tracking.",
+  "version": "1.3.0",
+  "description": "Batch inference for bulk LLM jobs across cloud and local backends: read OpenRouter's model lists, compare batch vs sync cost, evaluate models, and run Anthropic and OpenRouter batches, parallel sync calls or local models (Ollama, vLLM, llama.cpp) by your own routing guide.",
   "author": {
     "name": "Daniel Rosehill",
     "url": "https://github.com/danielrosehill"
@@ -20,6 +20,10 @@
     "gemini",
     "synthetic-data",
     "model-screening",
-    "prices"
+    "prices",
+    "ollama",
+    "vllm",
+    "llama.cpp",
+    "local-inference"
   ]
 }

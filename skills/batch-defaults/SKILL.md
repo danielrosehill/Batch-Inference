@@ -8,7 +8,8 @@ description: Pick the model, provider and lane for any bulk or batch LLM job (la
 ## Read first
 
 1. **The user's defaults:** `scripts/paths.sh defaults` prints their `defaults.md` if they have one. It
-   overrides everything below: lanes, secrets wrapper, spend rules, notebook location.
+   overrides everything below. Its `When to use which backend` guide decides first, in order, first match
+   wins. If there's no `defaults.md`, offer `onboarding` once, then carry on with the table below.
 2. **The notebook:** run `batch-research-check` before picking a lane or quoting a price. If its price for
    the lane is over 7 days old, run `check-api-prices`. After every run, pilots and failures included,
    run `batch-research-record`.
@@ -28,6 +29,7 @@ table: `or_models.py candidates` lists every cheap model that fits.
 | "the cheapest batch possible", "cheap as possible", "do it with DeepSeek" | **DeepSeek V4.1 Flash**, via OpenRouter batch or DeepSeek direct, whichever is cheaper today | `cheapest-batch` |
 | A named non-Anthropic model (GPT, Gemini, Qwen, GLM, Mistral…) | **OpenRouter Batch API** | `openrouter-batch` |
 | Results needed in minutes | Parallel sync calls | `sync-bulk-run` |
+| "Run it locally", "use Ollama", private data, offline, or the user's guide says so | **The user's local backend** | `local-bulk-run` |
 
 Haiku 5.5 batch is US$0.05 in / 0.25 out per M tokens. Small batches finish in a minute or two, and large
 ones usually within the hour.

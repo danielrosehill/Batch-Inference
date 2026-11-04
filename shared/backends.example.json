@@ -1,0 +1,21 @@
+{
+  "backends": [
+    {
+      "name": "gpu-box",
+      "type": "ollama",
+      "base_url": "http://192.0.2.10:11434",
+      "default_model": "qwen3:14b",
+      "concurrency": 1,
+      "notes": "Must be switched on first."
+    },
+    {
+      "name": "vllm-server",
+      "type": "vllm",
+      "base_url": "https://vllm.example.internal",
+      "default_model": "my-org/my-model",
+      "concurrency": 16,
+      "api_key_env": "VLLM_API_KEY",
+      "notes": "type is one of ollama, llama.cpp, vllm, lmstudio, openai-compatible. Never put a key here."
+    }
+  ]
+}
