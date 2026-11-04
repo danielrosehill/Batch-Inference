@@ -15,7 +15,7 @@
 set -euo pipefail
 NAME=batch-inference
 XDG_ROOT="${XDG_DATA_HOME:-$HOME/.local/share}/claude-plugins"
-if [[ -n "${BATCH_INFERENCE_HOME:-}" ]]; then DIR="$BATCH_INFERENCE_HOME"; RULE="LLM_OPS_HOME"
+if [[ -n "${BATCH_INFERENCE_HOME:-}" ]]; then DIR="$BATCH_INFERENCE_HOME"; RULE="BATCH_INFERENCE_HOME"
 elif [[ -n "${CLAUDE_USER_DATA:-}" ]]; then DIR="$CLAUDE_USER_DATA/$NAME"; RULE="CLAUDE_USER_DATA"
 elif [[ -d "$HOME/.claude-user-data" ]]; then DIR="$HOME/.claude-user-data/$NAME"; RULE="existing ~/.claude-user-data"
 elif [[ -d "$XDG_ROOT" ]]; then DIR="$XDG_ROOT/$NAME"; RULE="existing $XDG_ROOT"
