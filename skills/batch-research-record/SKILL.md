@@ -53,6 +53,10 @@ Add durable facts (API shape, limits, failure modes, things the docs get wrong)
 to `providers/<provider>.md` under a dated heading. Create the file for a new
 provider.
 
+## Run ledger
+
+After a full run, also add the one-row summary with `log-batch-run`.
+
 ## Commit
 
 If the notebook is a git repo: one commit per run or finding, message `<provider>: <what was learned>`, and push.

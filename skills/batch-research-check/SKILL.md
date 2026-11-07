@@ -21,6 +21,8 @@ beats a general verdict or a `pick-batch-model` default for that task, unless a 
 `verdicts.md` line or price row undercuts it. No file for the task means it was never screened:
 screen wide and small first (`pick-batch-model`), then record it with `batch-research-record`.
 
+For a quick "what did I use for that?", start with `find-batch-run`.
+
 ## Then read, in this order
 
 1. **`verdicts.md`** — one line per lesson, newest first. An `avoid` line overrides

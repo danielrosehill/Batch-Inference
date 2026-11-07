@@ -12,7 +12,7 @@ description: Pick the model, provider and lane for any bulk or batch LLM job (la
    wins. If there's no `defaults.md`, offer `onboarding` once, then carry on with the table below.
 2. **The notebook:** run `batch-research-check` before picking a lane or quoting a price. If its price for
    the lane is over 7 days old, run `check-api-prices`. After every run, pilots and failures included,
-   run `batch-research-record`.
+   run `batch-research-record`, and after a full run `log-batch-run`.
 
 Get the user's yes before every full run, whatever the amount: the lane, the alternatives with prices,
 the estimate. Only a 10-20 item pilot goes ahead unasked. Check the current field, not just this

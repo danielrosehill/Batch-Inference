@@ -23,6 +23,7 @@ cheapest model is often the wrong one. These tools check all of that on the day.
 | `setup-batch-eval` | Sets up a proper eval for a job with the companion [ai-eval](https://github.com/danielrosehill/AI-Eval) plugin, installing it if needed |
 | `synthetic-data-generation` | Varied synthetic data: seed, rotate writers, dedupe |
 | `batch-research-check` / `batch-research-record` | Read and write a dated notebook of prices, screens and runs |
+| `log-batch-run` / `find-batch-run` | Keep a one-row-per-job ledger of model, data size, cost and rating, and search it before the next job |
 
 ## Scripts
 

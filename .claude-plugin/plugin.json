@@ -1,6 +1,6 @@
 {
   "name": "batch-inference",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Batch inference for bulk LLM jobs across cloud and local backends: read OpenRouter's model lists, compare batch vs sync cost, evaluate models, and run Anthropic and OpenRouter batches, parallel sync calls or local models (Ollama, vLLM, llama.cpp) by your own routing guide.",
   "author": {
     "name": "Daniel Rosehill",

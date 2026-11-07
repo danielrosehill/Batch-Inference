@@ -5,6 +5,7 @@
 #   scripts/paths.sh dir       -> data dir only
 #   scripts/paths.sh defaults  -> path of the user's defaults.md, exit 1 if there is none
 #   scripts/paths.sh notebook  -> research notebook dir: the `notebook:` line of defaults.md, else <data dir>/notebook
+#   scripts/paths.sh ledger    -> run ledger dir: the `ledger:` line of defaults.md, else <data dir>/ledger
 #
 # Data dir, first match wins:
 #   1. $BATCH_INFERENCE_HOME
@@ -29,6 +30,11 @@ case "${1:-}" in
     [[ -f "$DIR/defaults.md" ]] && NB=$(sed -nE 's/^notebook:[[:space:]]*//p' "$DIR/defaults.md" | head -1)
     NB="${NB/#\~/$HOME}"
     echo "${NB:-$DIR/notebook}" ;;
+  ledger)
+    LG=""
+    [[ -f "$DIR/defaults.md" ]] && LG=$(sed -nE 's/^ledger:[[:space:]]*//p' "$DIR/defaults.md" | head -1)
+    LG="${LG/#\~/$HOME}"
+    echo "${LG:-$DIR/ledger}" ;;
   "") echo "$DIR ($RULE)" ;;
-  *) echo "usage: paths.sh [dir|defaults|notebook]" >&2; exit 2 ;;
+  *) echo "usage: paths.sh [dir|defaults|notebook|ledger]" >&2; exit 2 ;;
 esac
