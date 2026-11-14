@@ -31,7 +31,7 @@ All take one JSONL request format: `{"id", "user", "system"?, "schema"?}`.
 
 | Script | Purpose | Needs |
 |---|---|---|
-| `scripts/or_models.py` | `batch`, `candidates`, `hosts`, `probe`, `spend`, `account` | stdlib; a key for `probe` and `account` |
+| `scripts/or_models.py` | `probe`, `spend`, `account` (discovery moved to `orexplorer`, see below) | stdlib; a key for `probe` and `account` |
 | `scripts/openrouter_sync.py` | JSONL through parallel sync calls, resumable, `--max-cost` | stdlib, `OPENROUTER_API_KEY` |
 | `scripts/local_batch.py` | JSONL through any local OpenAI-compatible server, resumable | stdlib |
 | `scripts/backends.py` | `list`, `check`, `discover` and `speed` for your backends | stdlib |
@@ -41,10 +41,15 @@ All take one JSONL request format: `{"id", "user", "system"?, "schema"?}`.
 | `scripts/paths.sh` | Finds the user's data directory | bash |
 
 ```bash
-python3 scripts/or_models.py candidates --limit 20 --items 5000 --in-per-item 300 --out-per-item 120
+uvx --from git+https://github.com/danielrosehill/AI-Model-Research-Plugin orexplorer bulk --limit 20 --items 5000 --in-per-item 300 --out-per-item 120 --table
 python3 scripts/or_models.py probe deepseek/deepseek-v4.1-flash google/gemini-3.1-flash-lite
 python3 scripts/openrouter_sync.py in.jsonl out.jsonl --model deepseek/deepseek-v4.1-flash --max-cost 1
 ```
+
+Model discovery (which models have batch, batch vs sync price, bulk candidates, hosts) comes from
+`orexplorer` in the [ai-model-research](https://github.com/danielrosehill/AI-Model-Research-Plugin) plugin, so
+there is one OpenRouter catalogue reader for every plugin. It moved there on 2026-11-14 (`batch` kept its name,
+`candidates` became `bulk`, `hosts` became `endpoints`), with identical results checked on that date.
 
 ## Your own defaults
 

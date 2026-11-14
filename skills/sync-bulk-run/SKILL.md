@@ -5,6 +5,8 @@ description: Run a bulk LLM job as parallel sync calls instead of a batch, usual
 
 # Bulk run on sync calls
 
+> `orexplorer` lives in the ai-model-research plugin. Run it as `uvx --from git+https://github.com/danielrosehill/AI-Model-Research-Plugin orexplorer ...`, or as `orexplorer` after `uv tool install` from that URL. JSON by default; add `--table` for a human view.
+
 A batch API isn't always the best way to run a batch. Cheap instruct models are often as cheap on sync, and
 sync finishes in minutes, shows failures as they happen, and works with models that have no batch variant.
 
@@ -15,7 +17,7 @@ the sync default for that work. Skip to step 4 for a similar job, or when the us
 ## 1. Find candidates
 
 ```bash
-python3 or_models.py candidates --limit 25 --items N --in-per-item I --out-per-item O
+orexplorer bulk --limit 25 --items N --in-per-item I --out-per-item O
 ```
 
 Estimate I and O from a few real items: tokens are about 4 characters of English, and much less efficient
@@ -39,7 +41,7 @@ and quality still ranged from 2 to 5.
 ## 4. Compare with batch
 
 ```bash
-python3 or_models.py batch <model> --est-in T --est-out T
+orexplorer batch <model> --est-in T --est-out T
 ```
 
 Sync can lose on output-heavy jobs. On 2026-11-04 DeepSeek Flash output was 0.50 sync and 0.15 batch, so a job

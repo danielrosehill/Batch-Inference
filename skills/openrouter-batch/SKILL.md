@@ -5,8 +5,10 @@ description: Run a bulk job through the OpenRouter Batch API (POST /api/v1/batch
 
 # OpenRouter batch
 
+> `orexplorer` lives in the ai-model-research plugin. Run it as `uvx --from git+https://github.com/danielrosehill/AI-Model-Research-Plugin orexplorer ...`, or as `orexplorer` after `uv tool install` from that URL. JSON by default; add `--table` for a human view.
+
 - Docs: https://openrouter.ai/docs/batch-quickstart
-- **Batch-capable models:** `scripts/or_models.py batch` (skill `list-openrouter-models`). A model is
+- **Batch-capable models:** `orexplorer batch` (skill `list-openrouter-models`). A model is
   batch-capable when a `<id>:batch` variant exists in `/api/v1/models`: 73 of 455 on 2026-11-04.
 
 ## 1. Check price on the day

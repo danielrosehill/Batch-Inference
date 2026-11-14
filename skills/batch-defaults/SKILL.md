@@ -5,6 +5,8 @@ description: Pick the model, provider and lane for any bulk or batch LLM job (la
 
 # Batch defaults
 
+> `orexplorer` lives in the ai-model-research plugin. Run it as `uvx --from git+https://github.com/danielrosehill/AI-Model-Research-Plugin orexplorer ...`, or as `orexplorer` after `uv tool install` from that URL. JSON by default; add `--table` for a human view.
+
 ## Read first
 
 1. **The user's defaults:** `scripts/paths.sh defaults` prints their `defaults.md` if they have one. It
@@ -16,7 +18,7 @@ description: Pick the model, provider and lane for any bulk or batch LLM job (la
 
 Get the user's yes before every full run, whatever the amount: the lane, the alternatives with prices,
 the estimate. Only a 10-20 item pilot goes ahead unasked. Check the current field, not just this
-table: `or_models.py candidates` lists every cheap model that fits.
+table: `orexplorer bulk` lists every cheap model that fits.
 
 ## Which lane
 
@@ -61,7 +63,7 @@ This is the quick version. For a large, recurring or quality-critical job, use `
 
 Do not pick one model and run the full set on it. Spend the pilot money on breadth instead:
 
-1. **Shortlist 8-15 candidates** with `or_models.py candidates`, then `probe` them, across vendors and price bands, including the table default and the
+1. **Shortlist 8-15 candidates** with `orexplorer bulk`, then `probe` them, across vendors and price bands, including the table default and the
    older and cheaper Flash / Flash-Lite / DeepSeek / Qwen-flash / Luna models. Most cheap models
    are poor at instruction-heavy work, so the point is to find the good one, not to confirm a guess.
 2. **Same 30-50 items for every candidate**, sync calls (no batch for a screen), the exact

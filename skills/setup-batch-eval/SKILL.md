@@ -5,6 +5,8 @@ description: Set up an evaluation for a batch inference job, to choose or check 
 
 # Set up an eval for a batch job
 
+> `orexplorer` lives in the ai-model-research plugin. Run it as `uvx --from git+https://github.com/danielrosehill/AI-Model-Research-Plugin orexplorer ...`, or as `orexplorer` after `uv tool install` from that URL. JSON by default; add `--table` for a human view.
+
 This plugin runs bulk jobs. The companion plugin [ai-eval](https://github.com/danielrosehill/AI-Eval) decides
 which model deserves one. Use it when a job is large, will recur, or feeds something that matters. For a small
 one-off, the quick screen in `batch-defaults` is enough.
@@ -58,11 +60,11 @@ If the user has local backends (`backends.py list`), include the local model as 
 OpenRouter models, so generate its outputs with `local_batch.py` on the same items and score them with the rest.
 
 If the job must run as a batch, make it a hard requirement that the model has a `:batch` variant
-(`or_models.py batch`). Otherwise compare both routes for the top two or three.
+(`orexplorer batch`). Otherwise compare both routes for the top two or three.
 
 ## 4. Bring the result back
 
-1. Price the top two or three for the full job (`or_models.py batch <ids> --est-in N --est-out N`).
+1. Price the top two or three for the full job (`orexplorer batch <ids> --est-in N --est-out N`).
 2. Get the user's yes on model, route and estimate.
 3. Pilot 10-20 items through the real runner (`sync-bulk-run`, `openrouter-batch` or `anthropic-batch`), since
    the eval didn't exercise that route.

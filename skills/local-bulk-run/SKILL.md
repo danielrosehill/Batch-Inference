@@ -5,6 +5,8 @@ description: Run a bulk LLM job on local or self-hosted inference (Ollama, llama
 
 # Bulk run on local inference
 
+> `orexplorer` lives in the ai-model-research plugin. Run it as `uvx --from git+https://github.com/danielrosehill/AI-Model-Research-Plugin orexplorer ...`, or as `orexplorer` after `uv tool install` from that URL. JSON by default; add `--table` for a human view.
+
 Backends come from `backends.json`. If there are none, run `onboarding` first, or pass `--base-url` for a one-off.
 
 ## 1. Is it up, and does it have the model?
@@ -22,7 +24,7 @@ Choose the largest instruct model that fits the job and the hardware, and name i
 
 ```bash
 python3 backends.py speed <name> --model <model> --items N --out-per-item O
-python3 or_models.py batch deepseek/deepseek-v4.1-flash --est-in T --est-out T
+orexplorer batch deepseek/deepseek-v4.1-flash --est-in T --est-out T
 ```
 
 Local isn't automatically the cheap option. Cloud bulk prices are low enough that a job can cost cents, against
