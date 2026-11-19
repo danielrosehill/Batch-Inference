@@ -39,7 +39,7 @@ ones usually within the hour.
 ## Best options (checked 2026-10-31; re-check with `check-api-prices`)
 
 For the exact model per use case (labelling, extraction, judge, teacher, synthetic data), use
-**`pick-batch-model`**. For generating synthetic data, use **`synthetic-data-generation`**: varied
+**`pick-batch-model`**. For generating synthetic data, use the **`synthetic-data`** plugin (`generate-text-data`): varied
 output comes from seeding, not from the choice of model.
 
 US$ per M tokens, in / out. Read live on 2026-10-31: OpenRouter `/api/v1/models` with aliases

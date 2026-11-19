@@ -21,9 +21,10 @@ cheapest model is often the wrong one. These tools check all of that on the day.
 | `pick-batch-model` | Exact model id by use case, from measured data |
 | `check-api-prices` | Today's prices, sync vs batch, what `~*-latest` aliases really serve |
 | `setup-batch-eval` | Sets up a proper eval for a job with the companion [ai-eval](https://github.com/danielrosehill/AI-Eval) plugin, installing it if needed |
-| `synthetic-data-generation` | Varied synthetic data: seed, rotate writers, dedupe |
 | `batch-research-check` / `batch-research-record` | Read and write a dated notebook of prices, screens and runs |
 | `log-batch-run` / `find-batch-run` | Keep a one-row-per-job ledger of model, data size, cost and rating, and search it before the next job |
+
+Synthetic data generation (seed-then-write, model rotation, diversity checks) moved to the `synthetic-data` plugin ([Synthetic-Data-Plugin](https://github.com/danielrosehill/Synthetic-Data-Plugin)) on 2026-11-19.
 
 ## Scripts
 

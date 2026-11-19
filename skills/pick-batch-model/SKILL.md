@@ -21,7 +21,7 @@ workload shape) and 09 (synthetic-data diversity probe + EQ-Bench). Dated verdic
 | Translation / rewriting | `claude-haiku-5-5` batch | `z-ai/glm-5.3` (0.45 / 2.00) where the prose has to read well | GLM-5.3 has the best prose per $ (EQ-Bench Elo 2076, slop 8.4). |
 | Distillation teacher (targets a small model will learn; faithfulness first) | `claude-haiku-5-5` batch | `google/gemini-3.8-flash` (0.375 / 1.875); `claude-sonnet-5-5` batch for hard formats | Faithfulness is not benchmarked here. Pilot about 10 and read them. Haiku costs 7× less on output than Gemini 3.8 Flash. |
 | Synthetic data: seeds / scenario lists | `deepseek/deepseek-v4.1-flash` batch | `claude-haiku-5-5` batch | Low clustering in probe (09). Haiku clustered least on topic (0.23). |
-| Synthetic data: writing items, quality first | `z-ai/glm-5.3` + `google/gemini-3.8-flash`, rotated | — | Most varied wording (Gemini J3 0.034) and best prose (GLM). See `synthetic-data-generation`. |
+| Synthetic data: writing items, quality first | `z-ai/glm-5.3` + `google/gemini-3.8-flash`, rotated | — | Most varied wording (Gemini J3 0.034) and best prose (GLM). See the `synthetic-data` plugin (`generate-text-data`). |
 | Synthetic data: writing items, volume first | `deepseek/deepseek-v4.1-flash` + `claude-haiku-5-5` + `google/gemini-3.1-flash-lite`, rotated | — | All ≤ 0.75/M out. Rotation offsets DeepSeek's repetition. |
 | Long-form prose / creative | `z-ai/glm-5.3` batch | `openai/gpt-5.6-luna` (0.10 / 0.60, Elo 1832) | EQ-Bench CW v3 |
 
