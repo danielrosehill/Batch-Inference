@@ -16,7 +16,7 @@ In order, first match wins. Backends are defined in `backends.json`.
 |---|---|
 | Customer data or anything marked private | gpu-box, never cloud. Wait if it's off |
 | Simple tagging over 50,000 items, not urgent | gpu-box overnight |
-| Example sentences | deepseek/deepseek-v4.1-flash, sync |
+| Example sentences | tencent/hy4-flash, sync |
 | Anything else | Claude Haiku 5.5, Anthropic Batches |
 
 ## Spend

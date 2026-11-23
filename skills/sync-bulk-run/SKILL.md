@@ -1,6 +1,6 @@
 ---
 name: sync-bulk-run
-description: Run a bulk LLM job as parallel sync calls instead of a batch, usually on a cheap instruct model such as DeepSeek V4.1 Flash. Finds and probes candidates from OpenRouter's model list, compares cost against batch, pilots, then runs resumably with a hard spend cap and real measured cost. Use when sync is cheaper than batch today, the model has no batch variant, results are wanted in minutes, or the user says "just use sync", "do it with sync calls", "batch it with DeepSeek Flash", "find a cheap instruct model for this".
+description: Run a bulk LLM job as parallel sync calls instead of a batch, usually on a cheap instruct model such as Hy4 Flash. Finds and probes candidates from OpenRouter's model list, compares cost against batch, pilots, then runs resumably with a hard spend cap and real measured cost. Use when sync is cheaper than batch today, the model has no batch variant, results are wanted in minutes, or the user says "just use sync", "do it with sync calls", "batch it with DeepSeek Flash", "find a cheap instruct model for this".
 ---
 
 # Bulk run on sync calls
@@ -10,9 +10,9 @@ description: Run a bulk LLM job as parallel sync calls instead of a batch, usual
 A batch API isn't always the best way to run a batch. Cheap instruct models are often as cheap on sync, and
 sync finishes in minutes, shows failures as they happen, and works with models that have no batch variant.
 
-**Default model: `deepseek/deepseek-v4.1-flash`, reasoning off.** On 2026-11-03 it won a 20-model screen for
-generating training sentences (natural text, about a quarter of Gemini 3.1 Flash-Lite's cost), and it became
-the sync default for that work. Skip to step 4 for a similar job, or when the user names it.
+**Default model: `tencent/hy4-flash`, reasoning off** (since 2026-11-23; DeepSeek V4.1 Flash before). It won a 30-model
+screen for generating training sentences: 63 of 64 past the gate, about a seventh of DeepSeek's reasoning-off cost. Screened for short
+generation only, not labelling or extraction. Skip to step 4 for a similar job, or when the user names it.
 
 ## 1. Find candidates
 
@@ -51,7 +51,7 @@ with more output than input was cheaper as a batch. Say which you chose and why:
 
 ```bash
 head -20 in.jsonl > pilot.jsonl
-python3 openrouter_sync.py pilot.jsonl pilot.out.jsonl --model deepseek/deepseek-v4.1-flash --usage-log data/llm-usage.jsonl
+python3 openrouter_sync.py pilot.jsonl pilot.out.jsonl --model tencent/hy4-flash --usage-log data/llm-usage.jsonl
 python3 or_models.py spend data/llm-usage.jsonl
 ```
 
@@ -61,7 +61,7 @@ they beat the estimate. Get the user's yes on model, route and estimate before t
 ## 6. Run
 
 ```bash
-python3 openrouter_sync.py in.jsonl out.jsonl --model deepseek/deepseek-v4.1-flash \
+python3 openrouter_sync.py in.jsonl out.jsonl --model tencent/hy4-flash \
   --workers 8 --max-cost 2.00 --usage-log data/llm-usage.jsonl
 ```
 

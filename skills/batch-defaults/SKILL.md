@@ -1,6 +1,6 @@
 ---
 name: batch-defaults
-description: Pick the model, provider and lane for any bulk or batch LLM job (labelling, classification, extraction, synthetic data, summarising hundreds or thousands of items). Defaults: Claude Haiku 5.5 on the Anthropic Batches API for judgement work, DeepSeek V4.1 Flash for cheap volume (batch or parallel sync, whichever costs less today), OpenRouter Batch API for other named models; the user's own defaults file overrides these. Use first whenever the user says "batch this", "run it as a batch job", "bulk job", "use Haiku", "cheapest batch possible", "do it with DeepSeek", or a task needs one LLM call per item over many items.
+description: Pick the model, provider and lane for any bulk or batch LLM job (labelling, classification, extraction, synthetic data, summarising hundreds or thousands of items). Defaults: Claude Haiku 5.5 on the Anthropic Batches API for judgement work, Hy4 Flash on parallel sync for short generation, DeepSeek V4.1 Flash for other cheap volume (batch or sync, whichever costs less today), OpenRouter Batch API for other named models; the user's own defaults file overrides these. Use first whenever the user says "batch this", "run it as a batch job", "bulk job", "use Haiku", "cheapest batch possible", "do it with DeepSeek", or a task needs one LLM call per item over many items.
 ---
 
 # Batch defaults
@@ -24,7 +24,7 @@ table: `orexplorer bulk` lists every cheap model that fits.
 
 | The user says / the job needs | Lane | Skill |
 |---|---|---|
-| Example sentences for vocabulary terms, term contexts or glosses, short gated generation | **DeepSeek V4.1 Flash, OpenRouter sync in parallel**, reasoning off | `sync-bulk-run` |
+| Example sentences for vocabulary terms, term contexts or glosses, short gated generation | **Hy4 Flash (`tencent/hy4-flash`), OpenRouter sync in parallel**, reasoning off (2026-11-23) | `sync-bulk-run` |
 | Cheap volume work where sync beats batch today, or the model has no batch variant | **Parallel sync calls** on a screened instruct model | `sync-bulk-run` |
 | Nothing specific; "batch this"; "Haiku"; anything needing general intelligence or judgement | **Claude Haiku 5.5, Anthropic Message Batches API** (the default) | `anthropic-batch` |
 | Harder reasoning or writing quality that Haiku visibly fails at | Same lane, `--model claude-sonnet-5-5`. Say you escalated and why | `anthropic-batch` |
