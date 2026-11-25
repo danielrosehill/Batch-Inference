@@ -25,6 +25,29 @@ workload shape) and 09 (synthetic-data diversity probe + EQ-Bench). Dated verdic
 | Synthetic data: writing items, volume first | `deepseek/deepseek-v4.1-flash` + `claude-haiku-5-5` + `google/gemini-3.1-flash-lite`, rotated | — | All ≤ 0.75/M out. Rotation offsets DeepSeek's repetition. |
 | Long-form prose / creative | `z-ai/glm-5.3` batch | `openai/gpt-5.6-luna` (0.10 / 0.60, Elo 1832) | EQ-Bench CW v3 |
 
+### Shortlist: multi-label tagging of short texts (short JSON out, 2026-11-25)
+
+Start here for this kind of work; don't rescreen unless this is over a month old. 26 models on 40 private voice-note transcripts, ZDR
+routes only, 21 labels, scored against one agent's reading, so a gap of 1-3 notes is noise. Cost is measured.
+
+| Need | Model | Main label found | Acceptable share of its labels | US$ per 1,000 notes |
+|---|---|---|---|---|
+| **Default: labels plus free text (e.g. "what label is missing")** | `tencent/hy4-flash`, sync, reasoning off | 33/40 | 0.85 | 0.113 in the screen; **0.030** over a 7,426-note run, 1 failure (the gap is probably prompt caching) |
+| Fixed label set only, lowest cost | `liquid/d1.2` (decision model) | 36/40 | 0.82 at threshold 0.5 | 0.036 |
+| Fixed labels, highest recall | `typesafe/jev-1.14` (decision model) | 37/40 | 0.72 | 0.089 |
+| More accurate labels | `z-ai/glm-5.3-flash`, effort low | 35/40 | 0.92 | 0.166 |
+| Fallback at Hy4's price | `particle-ai/particle-1` | 34/40 | 0.91 | 0.113 |
+
+Also tried: `minimax/minimax-m3.1-flash` (36/40, 0.83, $0.148, reasons), `deepseek/deepseek-v4.1-flash-1017` (33/40, 0.90, $0.165),
+`anthropic/claude-haiku-5.5` sync (32/39, 0.81, $0.322; its batch route was not tried), `perplexity/pplx-decider-flash-v1.2`
+(31/40, $0.018). Weak here: gpt-oss-20b/120b, solar-mini-4-5, ling-3.0-flash, nova-micro, nemotron-3.5-lightning, clef-flash.
+
+- Decision models: `POST /api/v1/systemone`, `questions: {id: {type: "noul", instructions, criteria: {"true": ..., "false": ...}}}`;
+  the probability is in `answers.<id>.noul`. Discover them with `/models?output_modalities=all`.
+- For private data send `provider: {zdr: true, data_collection: "deny"}`. Hy4 Flash then runs on Fireworks or DeepInfra (0.07 in), not
+  Tencent (0.035). ZDR endpoints: `/api/v1/endpoints/zdr`.
+- Reasoning could not be disabled (HTTP 400) on `thinkingmachines/inkling-2-small` and `meta/muse-ember`.
+
 **No row fits, or the job is new and matters:** don't guess from this table. Screen 8-15 models on
 30-50 items first (`batch-defaults`, "screen wide, small") and add the winner here as a dated row.
 
